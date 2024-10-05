@@ -1,0 +1,46 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  add_investor: 'Add Investor'
+  allocation: 'Allocation'
+  allocation_proration_tool: 'Allocation Proration Tool'
+  average_amount: 'Average Amount'
+  calculation_error: 'There was an issue calculating the allocations.<br/> Please ensure that you have atleast one investor with their name, request amount, and average amount inputted'
+  calculation_success: 'The investor allocations are displayed under the Results section'
+  duplicate_investor_error: 'Please enter unique investor name(s)'
+  inputs: 'Inputs'
+  investor_breakdown: 'Investor Breakdown'
+  name: 'Name'
+  prorate: 'Prorate'
+  requested_amount: 'Requested Amount'
+  results: 'Results'
+  total_available_allocation: 'Total Available Allocation'

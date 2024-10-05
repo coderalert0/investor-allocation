@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title><%= t(:allocation_proration_tool) %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+        input{
+            height: 20px;
+            width: 220px;
+            padding: 10px;
+            margin: 5px 5px;
+        }
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+        }
+        .lg-button {
+            color: white;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            font-size: 16px;
+        }
+        .add-investor-button {
+            background-color: green;
+        }
+        .prorate-button {
+            background-color: #6366F1;
+        }
+        .results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .notice {
+            color: #004085;
+            background-color: #cce5ff;
+            border-color: #b8daff;
+            border-radius: .25rem;
+            padding: .75rem 1.25rem;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice].html_safe %></div>
+      <% end %>
+      <%= form_with(url: '/create', data: { turbo: false }) do |form| %>
+        <h2><%= t(:inputs) %></h2>
+        <div>
+          <h4><%= t(:total_available_allocation) %></h4>
+          <%= form.number_field :allocation_amount, placeholder: t(:allocation), required: true %>
+
+          <h4><%= t(:investor_breakdown) %></h4>
+          <div class="investor-inputs">
+            <% 4.times do |n| %>
+              <div class="investor-input-row">
+                <%= form.text_field "investor_amounts[][name]", placeholder: t(:name), required: n==0 %>
+                <%= form.number_field "investor_amounts[][requested_amount", placeholder: t(:requested_amount), required: n==0 %>
+                <%= form.number_field "investor_amounts[][average_amount]", placeholder: t(:average_amount), required: n==0 %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <button class="lg-button prorate-button"><%= t(:prorate) %></button>
+        <button class="lg-button add-investor-button" onclick="addRow()"><%= t(:add_investor) %></button>
+
+        <div class="results">
+          <% if @results %>
+            <h2><%= t(:results) %></h2>
+            <ul>
+              <% @results.each do |key, value| %>
+                <li><%= key %> - <%= number_to_currency(value) %></li>
+              <% end %>
+            <% end %>
+            </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <script type="module">
+        import { addRow } from 'add_row';
+        window.addRow = addRow;
+    </script>
+  </body>
+</html>
