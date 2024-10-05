@@ -32,8 +32,6 @@ The application was developed in Rails 7.0.8 against ruby version 3.3.0
 ## Question/Answers
 
 ### Discovering a bug
-> Suppose we discover a bug with our algorithm and investors for two deals had incorrect allocations. This means that some of the investors ended up investing more than they were allowed to while others invested less than they were allowed to. One of deals happened two years ago and the other one happened two weeks ago. Please describe, in detail, how would you go about correcting this issue and how would you communicate this to the affected customers.
-
 1. More than one issue may have caused the problem. Prioritization is important especially when time-sensitive issues arise and resources are limited. I would prioritize the issue that occurred 2 weeks ago. The deal that took place 2 years ago was most likely completed from an AML/KYC, execution, legal, and fund transfer perspective. So there may not be much that can be done in terms of reallocating funds. However, transparency and communication are very important to ensure customers trust the product and company (refer to point 6 for how to communicate)
 2. For the deal that occurred 2 weeks ago, there may be more that can be done beyond communication. The resolution starts by communicating to the customer of the issue and also inquiring where they are in the deal lifecycle to see if anything can be done to reallocate funds more appropriately.
 3. I would start by investigating both issue(s) (prioritizing the recent deal) by looking at application logs, business logic in code, and consult with subject matter experts if needed.
@@ -43,10 +41,6 @@ The application was developed in Rails 7.0.8 against ruby version 3.3.0
 7. A post-mortem meeting should be held internally to share what caused the issue(s) and how to be better prepared in the future.
 
 ### Squeezed down
-> An angry investor sent us a note about how they keep getting squeezed down to $25K per deal even though their requested amount is $100K. Underneath the hood, this was because there's limited allocation (low supply) and a high volume of investors looking to invest (high demand). How should we communicate this to an investor in a way that minimizes the damage to our relationship with the investor?
-> 
-> In addition, can you think of a better way we could change the proration basis logic so that this could potentially happen less often?
-
 I would start by acknowledging the customers frustration. The customer may be unaware of the business logic behind the allocations, so I would proceed to explain to them how things work under the hood. I would explain to them that to ensure fairness on the platform we use the historical average investment amount as the basis for proration. I would also communicate to them that we will take their feedback into account in an effort to improve customer experience in the future
 
 1. Instead of relying solely on historical averages, we could introduce a hybrid proration model that takes into account both the historical averages and the real-time demand (i.e., requested amounts). This would ensure that investors’ actual preferences in a specific deal are factored into the proration alongside their typical investment behavior. The proration formula could dynamically weight these two factors 
