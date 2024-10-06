@@ -2,7 +2,7 @@
 ## Table of Contents  
 1. [Setup](#setup)<br>
 2. [Running tests](#running-tests)<br>
-3. [Question/Answers](#questionanswers)<br>
+3. [Answers](#answers)<br>
 4. [Sample Output](#sample-output)<br>
 5. [Changelog](#changelog)<br>
 
@@ -29,7 +29,7 @@ The application was developed in Rails 7.0.8 against ruby version 3.3.0
 ## Running tests
 ``` rails test test/ ```
 
-## Question/Answers
+## Answers
 
 ### Discovering a bug
 1. More than one issue may have caused the problem. Prioritization is important especially when time-sensitive issues arise and resources are limited. I would prioritize the issue that occurred 2 weeks ago. The deal that took place 2 years ago was most likely completed from an AML/KYC, execution, legal, and fund transfer perspective. So there may not be much that can be done in terms of reallocating funds. However, transparency and communication are very important to ensure customers trust the product and company (refer to point 6 for how to communicate)
